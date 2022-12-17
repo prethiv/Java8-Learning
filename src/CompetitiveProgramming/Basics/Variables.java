@@ -22,7 +22,7 @@ public class Variables {
         String s1="This is a sample string";
         String s2=new String("This is a sample 2 string");
         String s3= new String(s2);
-        System.out.println(s1);
+        System.out.println(s1.length());
         System.out.println(s2);
         System.out.println(System.identityHashCode(s1));
         System.out.println(System.identityHashCode(s2));
@@ -48,6 +48,10 @@ public class Variables {
         String intstring = String.valueOf(99);
 
         int stringInteger = Integer.parseInt("9456");
+
+        int[] array = new int[5];
+
+        System.out.println(array.length);
 
 
 
