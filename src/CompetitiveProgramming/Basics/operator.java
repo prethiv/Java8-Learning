@@ -10,5 +10,6 @@ public class operator {
 //                %	Modulus	Returns the division remainder	x % y
 //                ++	Increment	Increases the value of a variable by 1	++x
 //                --	Decrement	Decreases the value of a variable by 1	--x
+//        https://www.w3schools.com/java/java_operators.asp
     }
 }
