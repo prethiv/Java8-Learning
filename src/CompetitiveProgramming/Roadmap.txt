@@ -15,3 +15,11 @@ Recursion
 BitManipulation
 
 How to debug java
+
+
+//interview prepration
+
+frontend - js,react js,redux,css,html
+programming - java (or) js
+backend - node js, java 8 + spring boot
+problem solving - LEET CODE
