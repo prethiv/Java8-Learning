@@ -20,21 +20,21 @@ public class ArrayListTutorial {
 
         System.out.println(stringarrayList);
         prethivUtility.printLine();
-        Iterator<String> itr =  stringarrayList.iterator();
+        Iterator<String> itr = stringarrayList.iterator();
 
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             System.out.println(itr.next());
         }
         prethivUtility.printLine();
-        for(String names:stringarrayList){
+        for (String names : stringarrayList) {
             System.out.println(names);
         }
         prethivUtility.printLine();
-        System.out.println("Returning element: "+stringarrayList.get(1));
+        System.out.println("Returning element: " + stringarrayList.get(1));
 
-        stringarrayList.set(1,"Love");
+        stringarrayList.set(1, "Love");
         prethivUtility.printLine();
-        for(String names:stringarrayList){
+        for (String names : stringarrayList) {
             System.out.println(names);
         }
 
@@ -46,7 +46,7 @@ public class ArrayListTutorial {
 
         prethivUtility.printLine();
 
-        stringarrayList.forEach(data->{
+        stringarrayList.forEach(data -> {
             System.out.println(data);
         });
 
@@ -63,6 +63,15 @@ public class ArrayListTutorial {
         prethivUtility.printLine();
 
         System.out.println(stringarrayList);
+
+        Collections.reverse(stringarrayList);
+
+        System.out.println(stringarrayList);
+
+        System.out.println(stringarrayList.contains("Prethiv"));
+
+
+
 
     }
 

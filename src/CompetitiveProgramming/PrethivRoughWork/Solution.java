@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static java.util.stream.Collectors.joining;
 
@@ -24,6 +26,31 @@ class Result {
             return -1;
         return 0;
     }
+
+
+    public static String angryProfessor(int k, List<Integer> a) {
+        // Write your code here
+        int numberOfStudentsCameLate = 0;
+        int numberOfStudentsPresent = 0;
+        for(Integer time:a){
+            numberOfStudentsPresent++;
+            if(numberOfStudentsPresent>=k){
+                return "YES";
+            }
+            if(time>0){
+                numberOfStudentsCameLate++;
+                if(numberOfStudentsCameLate>=k){
+                    //   System.out.println("NO");
+                    return "NO";
+                }
+            }
+        }
+        //   System.out.println("YES");
+        return "YES";
+
+
+    }
+
 
     public static String kangaroo(int x1, int v1, int x2, int v2) {
         // Write your code here
@@ -62,6 +89,7 @@ class Result {
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-       System.out.println(Result.kangaroo(0 ,3 ,4 ,2));
+//       System.out.println(Result.kangaroo(0 ,3 ,4 ,2));
+        System.out.println(Result.angryProfessor(7, Arrays.asList(26,94,-95,34,67,-97,17,52,1,86)));
     }
 }

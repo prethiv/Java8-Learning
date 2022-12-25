@@ -1,0 +1,350 @@
+Scanner scanner= new Scanner(System.in);
+        List<Integer> firstLine = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+        HashSet<Integer> hashSet = new HashSet<>();
+        for(int i=0;i<firstLine.get(0);i++){
+            hashSet.add(scanner.nextInt());
+        }
+        List<Integer> result = new ArrayList<>(hashSet);
+        System.out.println(result.get(firstLine.get(1)-1));
+
+
+You are given with a queue. Your task is to reverse the queue elements and print it.
+
+Input Description:
+You are given a number ‘n’,denoting size of queue, Next line contains s space separated numbers
+
+Output Description:
+Print the reversed queue.
+
+Sample Input :
+6
+1 2 3 4 5 6
+Sample Output :
+6 5 4 3 2 1
+
+
+package CompetitiveProgramming.PrethivRoughWork;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        List<Integer> firstLine = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+        List<Integer> secondline = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+        Collections.reverse(secondline);
+        int count=1;
+        for(Integer data:secondline){
+            if(count==secondline.size()){
+                System.out.print(data);
+            }
+            else {
+                System.out.print(data + " ");
+            }
+            count++;
+        }
+
+    }
+}
+
+
+You are given with an array. For each element present in the array your task is to print the next smallest than that number. If it is not smallest print -1
+
+Input Description:
+You are given a number ‘n’ representing size of array. And n space separated numbers.
+
+Output Description:
+Print the next smallest number present in array and -1 if no smallest is present
+
+Sample Input :
+7
+10 7 9 3 2 1 15
+Sample Output :
+7 3 3 2 1 -1 -1
+
+
+
+
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+    public static Integer getNextSmallest(List<Integer> list,Integer data,int index){
+
+        for(int i=index;i<list.size();i++){
+            if(list.get(i)<data){
+                return list.get(i);
+            }
+        }
+        return -1;
+
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        List<Integer> firstLine = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+        List<Integer> secondline = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+
+        int count=0;
+        for(Integer data:secondline){
+            if(count==secondline.size()-1){
+                System.out.print(getNextSmallest(secondline,data,count));
+            }
+            else{
+                System.out.print(getNextSmallest(secondline,data,count)+" ");
+            }
+            count++;
+        }
+
+    }
+}
+
+You are given given task is to print whether array is ‘majestic’ or not.A ‘majsetic’ array is an array whose sum of first three number is equal to last three number.
+
+Input Description:
+You are given a number ‘n’,Next line contains ‘n’ space separated
+
+Output Description:
+Print 1 if array is majestic and 0 if it is not
+
+Sample Input :
+7
+1 2 3 4 6 0 0
+Sample Output :
+1
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        List<Integer> firstLine = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+        List<Integer> secondline = Arrays.stream(scanner.nextLine().split(" ")).map(item->Integer.parseInt(item)).collect(Collectors.toList());
+        try{
+            int leftIndex = 0;
+            int rightIndex = secondline.size()-1;
+            if((secondline.get(leftIndex)+secondline.get(leftIndex+1)+secondline.get(leftIndex+2))==
+                    (secondline.get(rightIndex)+secondline.get(rightIndex-1)+ secondline.get(rightIndex-2))
+            ){
+                System.out.println(1);
+            }
+            else{
+                System.out.println(0);
+            }
+        }
+        catch(Exception e){
+            System.out.println(0);
+        }
+    }
+}
+
+
+
+Cities are represented as nodes in a graph. A link between two cities exist if there exists a road or railway line such that one city can be reached from another. Represent the map of the city in an adjacency matrix by denoting a link between two particular cities as the number 1 in the matrix. If there is no link between cities, denote it by a 0 in the matrix.
+
+
+
+Input Description:
+Number of cities, name of cities, number of links followed by end points of links between cities. A link is given as input in the format “city1 city2”
+
+Output Description:
+The adjacency matrix along with the corresponding city names
+
+Sample Input :
+3
+CHENNAI
+MUMBAI
+DELHI
+2
+CHENNAI MUMBAI
+DELHI CHENNAI
+Sample Output :
+ CHENNAI MUMBAI DELHI
+CHENNAI 1 1 1
+MUMBAI 1 1 0
+DELHI 1 0 1
+
+
+Mr. Kanga had a PhD in Heap Algorithms. Today, he was given a list of strings in random order. Help him sort the list in increasing order(lexicographically increasing) using heap sort.
+
+Input Description:
+The first line is an integer N denoting the number of strings. The next line contains N space separated strings containing lower case English Alphabets.
+
+Output Description:
+Print N space separated strings in increasing order.
+
+Sample Input :
+2
+bag axe
+Sample Output :
+axe bag
+
+package CompetitiveProgramming.PrethivRoughWork;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        int dummy=scanner.nextInt();
+        scanner.nextLine();
+        List<String> items = Arrays.stream(scanner.nextLine().split(" ")).collect(Collectors.toList());
+        PriorityQueue<String> minheap = new PriorityQueue<>();
+        items.forEach(item->{
+            minheap.add(item);
+        });
+//        Iterator<String> itr =minheap.iterator();
+        String result ="";
+        while(!minheap.isEmpty()){
+            result+=minheap.poll();
+            result+=" ";
+        }
+        System.out.println(result.trim());
+    }
+}
+
+Rajesh was going through alternative array sorting. He wishes to print the array alternatively. Hence hired you. Your task is to help rajesh in printing the array alternatively.
+
+
+
+An alternative array is an array in which first element is maximum of the whole array second element is minimum of the whole array. Third element is the second largest. Fourth element is the second smallest And so on. print the array in the desired manner.
+
+
+
+
+Input Description:
+You are given with the length of array ‘n’. followed by ‘n’ space separated numbers.
+
+Output Description:
+Print the array as mentioned.
+
+Sample Input :
+5 1 7 11 16 19
+Sample Output :
+19 1 16 7 11
+
+
+package CompetitiveProgramming.PrethivRoughWork;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        List<Integer> question = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+           return Integer.parseInt(item);
+        }).collect(Collectors.toList());
+//        question.remove(0);
+        Collections.sort(question);
+        int leftIndex = 0, rightIndex = question.size()-1;
+        int count=0;
+        String result = "";
+//        System.out.println(question);
+        while(count<=question.size()-1){
+            if(rightIndex!=leftIndex) {
+                result += question.get(rightIndex--);
+                result += " ";
+                count++;
+                result += question.get(leftIndex++);
+                result += " ";
+                count++;
+            }
+            else{
+                result+=question.get(leftIndex);
+                result+=" ";
+                count++;
+            }
+        }
+        System.out.println(result.trim());
+    }
+}
+
+
+You are provided with a string ‘s’. Your task is to reverse the string using stack Data Structure.
+
+
+
+Input Description:
+You are given a string ‘s’.
+
+Output Description:
+Print the reverse string
+
+Sample Input :
+i am jsb
+Sample Output :
+jsb am i
+
+package CompetitiveProgramming.PrethivRoughWork;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        String text = scanner.nextLine();
+        Stack<String> stk = new Stack<>();
+        for(String word:text.split(" ")){
+            stk.push(word);
+        }
+        String result="";
+        while(!stk.empty()){
+            result+=stk.pop();
+            result+=" ";
+        }
+        System.out.println(result.trim());
+    }
+}
+
+
+Given 2 numbers N and K and followed by an array of N integers. The given element K is removed from the array and new array is printed. If after removing every occurance of K the array becomes empty, print 'empty' without quotes.
+Example:
+Input: {10,10,20,30,76}, K=10
+Output: {20,20,76}
+Input Size : N <= 100000
+Sample Testcase :
+INPUT
+5 10
+10 10 20 30 76
+OUTPUT
+20 30 76
+
+
+package CompetitiveProgramming.PrethivRoughWork;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        String firstLine  = scanner.nextLine();
+        List<Integer> list = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+            return Integer.parseInt(item);
+        }).collect(Collectors.toList());
+        Integer k = Integer.parseInt(firstLine.split(" ")[1]);
+        String result="";
+        for(Integer data:list){
+            if(data!=k){
+                result+=data;
+                result+=" ";
+            }
+        }
+        result=result.trim().length()==0?"empty":result.trim();
+        System.out.println(result);
+    }
+}
