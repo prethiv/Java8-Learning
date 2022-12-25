@@ -348,3 +348,187 @@ public class Main {
         System.out.println(result);
     }
 }
+
+
+Ria is always fascinated by the number 2. She always wants to know who came second in a race, the second person to set foot on the moon and so on. She is given a list of numbers and asked to find the maximum. As always, she reports the second highest number as the maximum because according to her, 2 is higher than 1. Find out which was the number that Ria would have reported, given a list of N numbers.
+
+
+Input Description:
+Size of the array followed by the elements of the array.
+
+Output Description:
+Second largest element of the array.
+
+Sample Input :
+10
+1 9 8 7 6 5 2 3 4 10
+Sample Output :
+9
+
+
+package CompetitiveProgramming.PrethivRoughWork;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        Integer numbers = scanner.nextInt();
+        scanner.nextLine();
+        List<Integer> values = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+            return Integer.parseInt(item);
+        }).collect(Collectors.toList());
+        Collections.sort(values);
+        System.out.println(values.get(values.size()-2));
+    }
+}
+
+Ram is a marketing manager at GUVI. He observes that for every two batches of products, one package is extra in one of the batches. He realises that someone is stealing the package from the other batch. He decides to document the discovery so as to report to his superior. Find out the package number of the package that gets stolen from one of the batches of products.
+
+
+Constraints:
+
+1<=T<=100
+
+1<=N<=100
+
+1<=Ai<=1000
+
+
+
+Input Description:
+The first line of input contains an integer T, denoting the no of test cases. Then T test cases follow. The first line of each test case contains an integer N, denoting the number of packages in Batch A. The second line of each test case contains N space separated values of number of items in each package of Batch A. The Third line of each test case contains N-1 space separated number of items in each package of Batch B.
+
+Output Description:
+Return the package number of the corresponding package stolen from Batch B. The array index denotes the package number.
+
+Sample Input :
+2
+7
+2 4 6 8 9 10 12
+2 4 6 8 10 12
+6
+3 5 7 9 11 13
+3 5 7 11 13
+Sample Output :
+4
+3
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+
+
+    public static Integer getStolenPackage(List<Integer> batchA, List<Integer> batchB){
+        for(int i=0;i<batchA.size();i++){
+            if(batchA.get(i)!= batchB.get(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        Integer testCase = scanner.nextInt();
+        while(testCase-->0){
+            Integer packages = scanner.nextInt();
+            scanner.nextLine();
+            List<Integer> batchA = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+                return Integer.parseInt(item);
+            }).collect(Collectors.toList());
+            List<Integer> batchB = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+                return Integer.parseInt(item);
+            }).collect(Collectors.toList());
+            if(testCase==1){
+                System.out.print(getStolenPackage(batchA,batchB));
+            }else{
+                System.out.println(getStolenPackage(batchA,batchB));
+            }
+        }
+    }
+}
+
+The prison warden at Central jail is given a tip-off that a prison inmate is planning an escape. The warden suspects a particular prisoner of planning an escape and wants to find out if he/she is present in his/her cell. The layout of the prison is modelled in a matrix with every cell of the matrix representing a prison cell. The matrix is filled with the prisoner ids at the corresponding cells. Find out whether the person the warden suspects is present in the prison or not.
+
+
+Input Description:
+First line contains the dimensions of the prison matrix, followed by the ids of prisoners as elements of the matrix. The third line contains the id to be searched.
+
+Output Description:
+(yes/no) whether the given element is present in the matrix or not.
+
+Sample Input :
+2 5
+2 3 0 7 1 5 3 4 1 8
+11
+Sample Output :
+no
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> firstLine = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+            return Integer.parseInt(item);
+        }).collect(Collectors.toList());
+
+        List<Integer> secondLine = Arrays.stream(scanner.nextLine().split(" ")).map(item->{
+            return Integer.parseInt(item);
+        }).collect(Collectors.toList());
+
+        Integer numberToFind = scanner.nextInt();
+
+        System.out.print(secondLine.contains(numberToFind)?"yes":"no");
+
+
+    }
+}
+
+
+
+Sensex has never been steady and stock values have been rising and falling in the past. Ram is a stock broker and on analysing the trend of change in sensex points, he decides that there was a period when the points was at its all time high and investing during that period would have earned him a huge profit in trade. Ram immediately regrets not having done any trade in that particular period. Find out which period in time was Ram referring to.
+
+Constraints:
+3 ≤ N ≤ 106
+
+
+Input Description:
+The size of array N, the number of periods Ram has assessed. The values of the array are the values of the sensex points.
+
+Output Description:
+Period in which the points was at its max value. The array index is the period value.
+
+Sample Input :
+9
+1 15 25 45 42 21 17 12 11
+Sample Output :
+3
+
+Vasanth is working at GUVI. He has been taking leave often in the past couple of weeks and his manager, who also happens to be his friend, is worried that Vasanth might be exceeding his number of paid holidays, which might be a black mark in Vasanth monthly report. The manager analysis Vasanth’s attendance register and decides to warn him beforehand. The attendance register has a ‘P’ marked for present and an ‘A’ marked for absent. Vasanth will be blacklisted if his attendance falls below 25%. Your task is to help the manager find out whether Vasanth could be blacklisted or not.
+
+
+
+Input Description:
+First line contains the number of entries in the attendance register, followed by space separated values of attendance (‘P’ or ‘A’)
+
+Output Description:
+‘Blacklisted’ if attendance is below 25% ‘Not Blacklisted’ if attendance is above 25%
+
+Sample Input :
+5
+P P A A A
+Sample Output :
+Not Blacklisted
+
+
+
+
+
